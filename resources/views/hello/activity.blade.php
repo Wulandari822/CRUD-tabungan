@@ -2,7 +2,6 @@
 @extends('hello.snippets')
 @section('container')
 
-
 <table class="table table-dark table-striped">
                 <table class="table table-dark table-striped">
   <thead>

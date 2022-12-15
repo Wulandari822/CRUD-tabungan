@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\helloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function(){
-    return view('hello.snippets');
-});
+Route::get('/',[helloController::class , 'index'])->name('index');
+Route::post('/',[helloController::class , 'store'])->name('store');
+Route::post('/indexActivity', [helloController::class, 'indexActivity'])->name('indexActivity');
+Route::get('/indexEditActivity/{id}', [helloController::class, 'indexEditActivity'])->name('indexEditActivity');
+Route::post('/deleteActivity/{id}', [helloController::class, 'deleteActivity'])->name('deleteActivity');
+Route::post('/updateActivity/{id}', [helloController::class, 'updateActivity'])->name('updateActivity');
 
-Route ::get('/indexActivity', [HelloController ::class, 'indexActivity'])->name('indexActivity')->middleware('auth');

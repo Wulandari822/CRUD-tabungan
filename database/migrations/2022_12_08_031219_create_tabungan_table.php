@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Tabungan extends Migration
+class CreateTabunganTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,10 @@ class Tabungan extends Migration
     {
         Schema::create('tabungan', function (Blueprint $table) {
             $table->id();
-            $table->string('NIS');
-            $table->string('Nama');
-            $table->string('Rayon');
-            $table->integer('Money');
+            $table->integer('nis')->unique();
+            $table->string('nama');
+            $table->string('rayon');
+            $table->integer('uang')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class Tabungan extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tabungan');
     }
 }
