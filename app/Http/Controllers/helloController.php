@@ -14,12 +14,9 @@ class helloController extends Controller
     }
 
 
-    // public function snippets(){
-
-        
-
-    //     return view('hello.snippets', compact('data'));
-    // }
+    public function add(){
+        return view('layout.tambah');
+    }
 
     public function store(Request $request){
         $request->validate([
@@ -46,6 +43,8 @@ class helloController extends Controller
         
         return view ('hello.edit-data');
     }
+
+
 
     
 

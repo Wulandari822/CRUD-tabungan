@@ -13,12 +13,17 @@ use App\Http\Controllers\helloController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/main', function(){
+    return view ('layout.main');
+});
 
 
 Route::get('/',[helloController::class , 'index'])->name('index');
+Route::get('/tambah',[helloController::class , 'add'])->name('tambah');
 Route::post('/',[helloController::class , 'store'])->name('store');
 Route::post('/indexActivity', [helloController::class, 'indexActivity'])->name('indexActivity');
 Route::get('/indexEditActivity/{id}', [helloController::class, 'indexEditActivity'])->name('indexEditActivity');
 Route::post('/deleteActivity/{id}', [helloController::class, 'deleteActivity'])->name('deleteActivity');
 Route::post('/updateActivity/{id}', [helloController::class, 'updateActivity'])->name('updateActivity');
+Route::post('/updateMoney/{id}', [helloController::class, 'updateMoney'])->name('updateMoney');
 
